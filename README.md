@@ -8,7 +8,7 @@ Scroll through the expedition or select a destination in the flight path. Drag a
 
 ## Run
 
-Run `python3 -m http.server 8080` from the repository root and open <http://localhost:8080>. Run `node tools/build.mjs` to copy the production site to `dist/`.
+Run `node tools/build.mjs`, then `python3 -m http.server 8080 --directory dist`. Open <http://localhost:8080>. Vercel runs the same build and publishes `dist/`.
 
 ## Rendering
 
@@ -16,4 +16,4 @@ The browser tries WebGPU, then WebGL 2. Both render a three-dimensional sphere a
 
 Each world has an original prerendered WebP available on first paint. Reduced-motion and data-saving preferences start in still mode. The WebGPU device-loss handler can switch to WebGL, and a lost WebGL context returns to the poster.
 
-Edit copy in `index.html` and `src/main.js`. Edit the shared shader math in `src/orbit.glsl`, then run `python3 tools/build-wgsl.py`. The generated WGSL is checked in. Rebuild the original artwork with `python3 tools/make-art.py` (NumPy, SciPy, Pillow). Font licenses are in `assets/licenses/`.
+The home atlas is in `content/expedition.html` and `src/main.js`. Edit company pages in `content/pages.mjs`, services and articles in `content/editorial.mjs`, and common navigation and contact details in `content/layout.mjs`. The build outputs static pages, a sitemap, and crawler instructions. Quote enquiries prepare an email draft on the visitor’s device. The visitor sends it via their email app or copies it to webmail. The careers page accepts expressions of interest. Edit the shared shader math in `src/orbit.glsl`, then run `python3 tools/build-wgsl.py`. The generated WGSL is checked in. Rebuild the original artwork with `python3 tools/make-art.py` (NumPy, SciPy, Pillow). Font licenses are in `assets/licenses/`.
